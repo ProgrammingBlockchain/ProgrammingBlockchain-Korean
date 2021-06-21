@@ -1,4 +1,4 @@
-## 이 책은 왜?{#why-do-people-fincipals-new-new-deconologies-new-
+## Why this book?{#why-do-people-hate-new-technologies-bitcoin}
 
 비트코인을 이해하는 것은 상당히 어려운 과제입니다. 당신은 그것에 대해 완전히 생소할 수도 있습니다. 
 여러분은 수년 동안 비트코인 관련 뉴스를 접하고 완전히 빠져 버렸지만, 여전히 모든 것이 혼란스러울 것입니다. 
