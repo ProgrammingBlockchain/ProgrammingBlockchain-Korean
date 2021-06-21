@@ -1,5 +1,8 @@
-## Why this book?{#why-do-people-hate-new-technologies-bitcoin}
+## 이 책은 왜?{#why-do-people-fincipals-new-new-deconologies-new-
 
-Understanding Bitcoin is quite a challenge. You might be completely unfamiliar with it. You might be heavily invested, following the news for years, already became completely addicted, but still the whole thing feels like a big mess. Or you feel like you understand it, but you are lacking practical knowledge. If you fell into any of these categories, we believe this book is the best investment of your time.  
+비트코인을 이해하는 것은 상당히 어려운 과제입니다. 당신은 그것에 대해 완전히 생소할 수도 있습니다. 
+여러분은 수년 동안 비트코인 관련 뉴스를 접하고 완전히 빠져 버렸지만, 여전히 모든 것이 혼란스러울 것입니다. 
+이해한다고는 느끼지만 실제적인 지식은 부족합니다. 만약 당신이 이러한 범주에 속한다면, 우리는 이 책이 가장 좋은 도구라고 믿습니다.
 
-If you let us guide you through the Blockchain world, we will not only arm you with skills necessary to win any [/r/Bitcoin](http://www.reddit.com/r/Bitcoin/) arguments, but also enable you to wisely choose between the countless developer opportunities that come your way daily. Furthermore, you will also be able to make those ideas reality. And in general, what better way is there to understand something, but coding it?  
+블록체인에 대해 이해하게 되면 [/r/Bitcoin](http://www.reddit.com/r/Bitcoin/)의 논쟁에서 필요한 기술을 갖추게 될 뿐만 아니라, 개발자에게 매일 제공되는 수많은 기회 중에서 현명한 선택을 하게 됩니다. 
+또한 이러한 아이디어를 현실로 만들 수도 있습니다. 일반적으로 무언가를 이해하는데 코딩 말고 더 좋은 방법이 있을까요?

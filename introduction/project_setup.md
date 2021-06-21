@@ -1,30 +1,31 @@
-## Project Setup {#project-setup}
+## 프로젝트 설정 {#project-setup}
 
-Before we begin with the instruction, we should describe how we expect your projects to be set up.
+설명을 시작하기 전에 프로젝트 설정 방법을 설명해야합니다.
 
-1.  Create a new Console Application Project in Visual Studio (.NET 4.5.2 or higher)
-2.  Right click on the project in Solution Explorer and select “Manage NuGet Packages…”
-3.  Search for “**NBitcoin”** and install it (or NBitcoin.Mono on MAC and Linux.)
+1. Visual Studio (.NET 4.5.2 이상)에서 새 콘솔 응용 프로그램 프로젝트를 만듭니다.
+2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 클릭하고 “Manage NuGet Packages…”를 선택합니다.
+3. “**NBitcoin”**을 검색하여 설치합니다 (또는 MAC 및 Linux의 경우 NBitcoin.Mono).
 ![](../assets/nuget.png)  
 
-> **Tip:** If you are on MAC or Linux and reference NBitcoin instead of NBitcoin.Mono you will be missing some classes.  
+> **Tip:** MAC 또는 Linux를 사용 중이고 NBitcoin.Mono 대신 NBitcoin을 참조하면 일부 클래스가 누락됩니다.
 
-NBitcoin is the .NET Bitcoin library, it is open-source and maintained by Nicolas Dorier, the main author of this book.
-This library should always be included if you do anything Bitcoin related in C#.  
-NBitcoin supports cross-platform applications.  
+NBitcoin은 .NET 비트코인 라이브러리이자 오픈소스입니다, 이 책의 주요 저자 인 Nicolas Dorier가 관리합니다.
+이 라이브러리는 C#에서 비트코인과 관련된 작업을 하는 경우 항상 포함되어야합니다.
+NBitcoin은 크로스플랫폼 애플리케이션을 지원합니다.
 
-## How to debug into NBitcoin source code (optional)  
 
-NBitcoin lets you debug into its code to make your life easier. For this feature to work make sure you have source server support enabled in Visual Studio (Tools/Options -> Debugging/General -> Enable source server support).   
+## NBitcoin 소스 코드로 디버그하는 방법 (선택적)
+
+NBitcoin을 사용하면 코드 디버깅을 더 쉽게 할 수 있습니다. 이 기능이 작동하려면 Visual Studio에서 소스 서버 지원이 활성화되어 있는지 확인하십시오 (Tools/Options -> Debugging/General -> Enable source server support).
 ![](../assets/visualstudio_enablesourceserversupport.png)  
 
-Now, if you step into NBitcoin's code, the source code will be automatically fetched from GitHub, and appear in the Visual Studio Debugger.  
+이제, NBitcoin의 코드로 들어가면, 소스 코드가 GitHub에서 자동으로 가져와서, Visual Studio 디버거에 나타납니다.
 
-# How to use in .NET Core
+# .NET Core에서 사용하는 방법
 
-If you want to use .NET Core, first install .NET Core [as documented here](https://www.microsoft.com/net/core#windowsvs2017).
+.NET Core를 사용하려면, [이곳에서](https://www.microsoft.com/net/core#windowsvs2017) .NET Core를 설치하세요.
 
-Then:
+그런 다음 명령 창에서 아래 문장 실행:
 ```
 mkdir MyProject
 cd MyProject
@@ -32,7 +33,7 @@ dotnet new console
 dotnet add package NBitcoin
 dotnet restore
 ```
-Then edit your Program.cs:
+Program.cs 수정:
 ```
 using System;
 using NBitcoin;
@@ -48,7 +49,7 @@ namespace _125350929
     }
 }
 ```
-You can then run with
+다음 명령으로 실행
 ```
 dotnet run
 ```

@@ -20,7 +20,7 @@ Bitcoin Core를 사용하는 경우 거래 탭에 다음과 같은 거래가 표
 Blockchain.info 같은 블록 탐색기를 이용하면 트랜잭션을 확인 할 수 있습니다: https://blockchain.info/tx/f13dc48fb035bbf0a6e989a26b3ecb57b84f85e0836e777d6edf60d87a4a2d94
 그러나 개발자는 더 쉽게 쿼리를 실행하거나 구문을 분석 할 수 있는 서비스를 원할 것입니다.
 
-C# 개발자이자 NBitcoin 사용자 인 Nicolas Dorier의 [QBit Ninja](http://docs.qbitninja.apiary.io/)가 최적의 선택이라고 생각합니다. 블록체인을 조회하고 지갑을 추적하기 위한 오픈 소스 웹 서비스 API입니다.
+C# 개발자이자 NBitcoin 사용자 인 Nicolas Dorier의 [QBit Ninja](http://docs.qbitninja.apiary.io/)가 최적의 선택이라고 생각합니다. 블록체인을 조회하고 지갑을 추적하기 위한 오픈소스 웹 서비스 API입니다.
 
 QBit Ninja는 Microsoft Azure Storage를 기반으로 하는 [NBitcoin.Indexer](https://github.com/MetacoSA/NBitcoin.Indexer)에 의존하고 있습니다. C# 개발자는 이 API의 래퍼를 직접 개발하는 대신 클라이언트 라이브러리인 [NuGet client package](http://www.nuget.org/packages/QBitninja.Client)를 사용하는 것을 추천 합니다.
 

@@ -1,11 +1,11 @@
-## Diagrams {#diagrams}
+## 다이어그램 {#diagrams}
 
-Most of the diagrams will have the same shape, they must be read by interpreting inward arrows like components to create the target:
+대부분의 다이어그램은 동일한 모양을 가지며, 대상을 만들려면 구성 요소와 같은 안쪽 화살표를 해석하여 읽어야합니다:
 
-For example, the following diagram should be read as  
+예를 들어 다음 다이어그램은 다음과 같이 읽어야합니다.
 ```Key + Password = EncryptedKey```  
 ```EncryptedKey + Password = Key```  
 
 ![](../assets/encrypted_key.png)
 
-Code is nice, but sometimes a picture is worth a thousand words. (Don’t worry, we’ll also write the code.)
+백문이 불여일견이라고, 코드 보다는 사진이 더 가치가 있습니다. (걱정하지 마세요. 코드도 작성하겠습니다.)

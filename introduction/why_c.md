@@ -1,16 +1,16 @@
-## Why C#? {#why-c}
+## 왜 C#인가? {#why-c}
 
-The .NET framework is popular in corporate environments. We also believe this is the perfect tool for startups and hobbyists.
+.NET 프레임워크는 기업에서 널리 사용됩니다. 또한 스타트업들에게 완벽한 도구라고 믿습니다.
 
-*   You can create portable code that functions across iOS, Android, Windows tablets/phones, desktops, servers and embedded devices, for free.
-*   Everything from the compiler to the core runtime is open source.
-*   The BizSpark program allows any startup to get all Microsoft tools, including $150/month of Azure service, for free.
-*   Visual Studio Community 2015 is a professional grade IDE that you can use freely as a hobbyist.
-*   C# is closely related to Java and C++. As such, it can be easily read by a big base of developers.
-*   Nicolas Dorier, one of the authors of this book, created the most popular Bitcoin Framework for .NET, called [NBitcoin](https://github.com/MetacoSA/NBitcoin).
-*   Every person I met who learned about C# will tell you it is the best language out there, even if it is not the one they are using at the moment.
-*   Recent Benchmark place .net Core C# performance way ahead of Java in almost every area. See for yourself [C# vs Java Benchmark](https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/csharp.html)
+* iOS, Android, Windows 태블릿/휴대폰, 데스크톱, 서버 및 임베디드 장치에서 작동하는 휴대용 코드를 무료로 만들 수 있습니다.
+* 컴파일러에서 핵심 런타임까지 모든 것은 오픈소스입니다.
+* BizSpark 프로그램을 사용하면 모든 스타트업에서 월 $150의 Azure 서비스를 포함한 모든 Microsoft 도구를 무료로 받을 수 있습니다.
+* Visual Studio Community 2019는 자유롭게 사용할 수 있는 전문가용 IDE입니다.
+* C#은 Java 및 C++와 밀접한 관련이 있습니다. 따라서 많은 개발자들이 쉽게 읽을 수 있습니다.
+* 이 책의 저자 중 한 명인 Nicolas Dorier는 [NBitcoin](https://github.com/MetacoSA/NBitcoin)이라는 가장 인기있는 .NET용 비트 코인 프레임워크를 만들었습니다.
+* 내가 만난 C#을 배운 사람들은 현재 사용하고 있지 않더라도 C#을 최고의 언어라고 말 합니다.
+* 최근 벤치마크는 거의 모든 영역에서 .net Core C# 성능이 Java 보다 앞서 있습니다. 여기에서 [C# vs Java Benchmark](https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/csharp.html) 직접 확인 하세요.
 
-The authors of this book have over 15 years combined experience with C#. It is our go-to language for any project for fun or profit.  
+이 책의 저자는 15 년 이상의 C# 경험을 가지고 있습니다. 취미 또는 수익을 얻기 위한 모든 프로젝트에 걸쳐 사용되는 언어입니다.
 
-> **Fact:** We have not been paid by Microsoft. It’s not too late to change that.
+> **Fact:** Microsoft에 비용을 지불하지 않습니다. 바꾸기에는 늦지 않았습니다.
