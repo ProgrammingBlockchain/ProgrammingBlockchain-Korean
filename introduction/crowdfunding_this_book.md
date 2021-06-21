@@ -4,6 +4,6 @@
 
 **Bitcoin address:** [1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB](https://blockchain.info/address/1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB)  
 
-암호 화폐 중독자들은 다음과 같이 말할 수 있습니다: 지분 증명과 작업 증명은 애정을 표현하는 최고의 표현이며, 그 밖의 모든 것은 돈(법정화폐) 입니다.
+암호화폐 옹호가들은 다음과 같이 말할 수 있습니다: 지분 증명과 작업 증명은 애정을 표현하는 최고의 표현이며, 그 밖의 모든 것은 돈(법정화폐) 입니다.
 
-https://bitcoin.ninja/ 이곳에서 우리의 작업에 대해 알아 보세요.
+https://n.bitcoin.ninja/ 이곳에서 우리의 작업에 대해 알아 보세요.
