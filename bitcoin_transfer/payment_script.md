@@ -49,6 +49,6 @@ Console.WriteLine(mainNetAddress == sameMainNetAddress2); // True
 
 > **Note:** ScriptPubKey에는 비트코인 사용이 허용 된 해시 된 공개 키가 반드시 포함 될 필요는 없습니다.
 
-이제 개인 키, 공개 키, 공개 키 해시, 비트코인 주소 및 ScriptPubKey 간의 관계를 이해했습니다.
+이제 개인키, 공개 키, 공개 키 해시, 비트코인 주소 및 ScriptPubKey 간의 관계를 이해했습니다.
 
 이 책의 나머지 부분에서는 **ScriptPubKey** 만 사용하게 됩니다. 비트코인 주소는 단지 사용자와 상호 대화용 일뿐 입니다.

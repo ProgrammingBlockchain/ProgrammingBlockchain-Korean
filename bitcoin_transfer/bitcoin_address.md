@@ -4,19 +4,19 @@
 
 ![](../assets/BitcoinAddress.png)  
 
-공개 주소로 송금 받은 코인을 사용하려면 **개인 키(private-key)** 가 필요 합니다.
+공개 주소로 송금 받은 코인을 사용하려면 **개인키(private-key)** 가 필요 합니다.
 
 ![](../assets/PrivateKey.png)  
 
-개인 키는 네트워크에 저장되지 않으며 인터넷에 연결하지 않고도 생성 할 수 있습니다.
+개인키는 네트워크에 저장되지 않으며 인터넷에 연결하지 않고도 생성 할 수 있습니다.
 
-아래 코드는 NBitcoin으로 개인 키를 생성하는 방법은 다음과 같습니다.
+아래 코드는 NBitcoin으로 개인키를 생성하는 방법은 다음과 같습니다.
 
 ```cs  
 Key privateKey = new Key(); // generate a random private key
 ```  
 
-개인 키로 단방향 암호화 기능을 이용하여 **공개 키(public-key)** 를 생성 가능합니다 
+개인키로 단방향 암호화 기능을 이용하여 **공개 키(public-key)** 를 생성 가능합니다 
 
 ![](../assets/PrivKeyPubKey.png)  
 

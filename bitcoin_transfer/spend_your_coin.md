@@ -11,7 +11,7 @@
 
 새 **Console Project** (.net45)를 만들고 QBitNinja.Client NuGet을 설치 합니다.
 
-이미 개인 키를 생성하고 기록해 두셨습니까? 해당 비트코인 주소를 이미 받고 거기에 자금을 보냈습니까? 그렇지 않다면 걱정하지 마십시오. 어떻게 할 수 있는지 빠르게 다시 알려 주겠습니다:
+이미 개인키를 생성하고 기록해 두셨습니까? 해당 비트코인 주소를 이미 받고 거기에 자금을 보냈습니까? 그렇지 않다면 걱정하지 마십시오. 어떻게 할 수 있는지 빠르게 다시 알려 주겠습니다:
 
 
 ```cs
@@ -28,7 +28,7 @@ Console.WriteLine(address);
 
 먼저 TestNet을 사용하지만 MainNet에서도 이 작업을 수행하므로 실제 돈을 지출하게됩니다! 어떤 경우든, **bitcoinPrivateKey** 및 주소를 기록해 두세요! 거기에 몇 달러의 코인을 보내고 트랜잭션 ID를 저장하십시오 (지갑 소프트웨어 또는 SmartBit for [MainNet](http://smartbit.com.au/) 및 [TestNet](https://testnet.smartbit.com.au/) 과 같은 블록 탐색기에서 찾을 수 있음).
 
-개인 키를 가져옵니다 ( "cN5Y ... K2RS" 문자열을 귀하의 것으로 대체):
+개인키를 가져옵니다 ( "cN5Y ... K2RS" 문자열을 귀하의 것으로 대체):
 
 
 ```cs
@@ -224,7 +224,7 @@ var bitcoinPrivateKey = new BitcoinSecret("cN5YQMWV8y19ntovbsZSaeBxXaVPaK4n7vapp
 transaction.Inputs[0].ScriptSig =  bitcoinPrivateKey.ScriptPubKey;
 ```
 
-transaction에 서명하려면 개인 키가 필요 합니다:
+transaction에 서명하려면 개인키가 필요 합니다:
 
 ```cs
 transaction.Sign(bitcoinPrivateKey, receivedCoins.ToArray());

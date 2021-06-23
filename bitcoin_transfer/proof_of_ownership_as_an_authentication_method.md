@@ -40,7 +40,7 @@ Nicolas Dorier Book Funding Address
 **Signature:**  
 H1jiXPzun3rXi0N9v9R5fAWrfEae9WPmlL5DJBj1eTStSvpKdRR8Io6/uT9tGH/3OnzG6ym5yytuWoA9ahkC3dQ=  
 
-이것은 Nicolas Dorier가 책의 개인 키를 소유하고 있다는 증거입니다.
+이것은 Nicolas Dorier가 책의 개인키를 소유하고 있다는 증거입니다.
 
 **Exercise:** Nicolas sensei가 거짓말을하고 있지 않은지 확인하세요!
 

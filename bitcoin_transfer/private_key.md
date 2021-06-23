@@ -1,6 +1,6 @@
-## 개인 키 {#private-key}
+## 개인키 {#private-key}
 
-개인 키는 때때로 비트코인 주소와 같이 **Bitcoin Secret** (**Wallet Import Format** 또는 간단히 **WIF** 라고도 함) 으로 불리어지는 Base58Check로 표시됩니다 .
+개인키는 때때로 비트코인 주소와 같이 **Bitcoin Secret** (**Wallet Import Format** 또는 간단히 **WIF** 라고도 함) 으로 불리어지는 Base58Check로 표시됩니다 .
 
 ![](../assets/BitcoinSecret.png)  
 
@@ -32,6 +32,6 @@ BitcoinAddress bitcoinAddress = publicKey.GetAddress(ScriptPubKeyType.Legacy, Ne
 ```  
 
 ### 연습:
-1. 메인 넷에서 개인 키를 생성하고 기록해 둡니다.
+1. 메인 넷에서 개인키를 생성하고 기록해 둡니다.
 2. 해당 주소를 가져옵니다.
 3. 그것에 비트코인을 보냅니다. 잃어 버려도 될 만큼만 보내세요, 차후 수업에서 다시 찾을 수 있도록 집중력과 동기가 부여 될 것입니다.

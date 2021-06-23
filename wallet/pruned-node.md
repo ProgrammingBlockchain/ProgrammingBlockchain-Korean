@@ -19,3 +19,5 @@ checklevel=0
 
 txindex=0
 ```
+
+** txindex=1은 모든 거래(transaction)를 동기화 하는 옵션입니다. 이 옵션을 이용하면 모든 트랜젝션을 확인 할 수 있습니다. 이를 full-index node라고 합니다.

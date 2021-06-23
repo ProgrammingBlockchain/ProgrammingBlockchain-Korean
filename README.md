@@ -14,6 +14,8 @@
 
 일본어 : [읽기](https://programmingblockchain.gitbooks.io/programmingblockchain-japanese/content/) - [GitHub](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Japanese) - [GitBook](https://www.gitbook.com/book/programmingblockchain/programmingblockchain-japanese)
 
+한국어 : [읽기](https://programmingblockchain.gitbooks.io/programmingblockchain-korean/content/) - [GitHub](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean) - [GitBook](https://www.gitbook.com/book/programmingblockchain/programmingblockchain-korean)
+
 ## 빠른 피드백
 
 실수를 발견하고 직접 수정하고 싶지 않은 경우 [책의 GitHub 페이지에서](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean) 문제를 알려주세요.
