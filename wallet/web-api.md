@@ -1,44 +1,50 @@
 # Web API/ Block Explorer {#web-api}
 
-Block explorers, or more specifically the web APIs, usually provided by block explorers can get you started very quickly. You used `QBitNinja` already in this book, but many more exist.  
-A block explorer is a self-hosted or third-party hosted solution which provides you information about blocks, transactions and addresses in the chain.  
+일반적으로 블록 탐색기(block explorers)가 제공하는 웹 API를 사용하면 좀더 빠르게 시작할 수 있습니다. 
+이 책에서 이미 `QBitNinja`를 사용했지만 더 많이 사용 하게 됩니다.
+블록탐색기는 체인의 블록, 트랜젝션 및 주소에 대한 정보를 제공하는 자체 호스팅 또는 타사 호스팅 솔루션입니다.
 
 ![Explorer](../assets/Wallet-Explorer.png)
 
-A block explorer connects to a bitcoin node, indexes the data of the blockchain and exposes an easy to use API.
-Solutions include: `QBitNinja`, `Blockcypher`, `Smartbit`, `Electrum server`, `Insight`, `NBXplorer`.  
+블록 탐색기는 비트 코인 노드에 연결하고 블록 체인의 데이터를 인덱싱하고 사용하기 쉬운 API를 노출합니다.
+솔루션에는 `QBitNinja`, `Blockcypher`, `Smartbit`, `Electrum server`, `Insight`, `NBXplorer`등이 있습니다.
 
-The advantages are:
+장점:
 
-* Better API than Bitcoin Core RPC,
-* Can handle more load,
-* Support large number of wallet, and can add them dynamically,
-* The client-server architecthure is fast.  
+* Bitcoin Core RPC보다 더 좋은 API,
+* 더 많은 부하(load)를 처리 할 수 있습니다.
+* 많은 수의 지갑을 지원하고 동적으로 추가 할 수 있습니다.
+* 빠른 클라이언트-서버 아키텍처
 
-The disadvantages are:
+단점:
 
-* If it is hosted by third party, and there is a contentious fork, you don't have the choice of which fork to follow,
-* Sometimes, their services are not enough to handle everything you need for a full wallet,
-* Non-existent privacy: the server knows everything about the clients. This doesn't apply to self-hosted type.
+* 타사에서 호스팅 되는 문제있는 포크(fork)가 발견된 경우 포크(fork) 선택권이 없습니다.
+* 때로는, 그들의 서비스가 전체 지갑에 필요한 모든 것을 처리하기에 충분하지 않습니다.
+* 존재하지 않는 개인정보: 서버는 클라이언트에 대한 모든 것을 알고 있습니다. 자체 호스팅 유형에는 적용되지 않습니다.
 
-Different block explorers expose different APIs and features. For example most block explorers use HTTP web APIs, while Electrum uses [the Stratum](http://docs.electrum.org/en/latest/protocol.html) protocol. Block explorers never have the private keys of the wallet.  
 
-With `QBitNinja`, it is difficult to track a wallet which always changes addresses, because you need to poll all the addresses belonging to the same wallet to detect any change. 
+서로 다른 블록 탐색기는 다른 API와 기능을 노출합니다. 
+예를 들어 대부분의 블록 탐색기는 HTTP 웹 API를 사용하는 반면 Electrum은 [the Stratum](http://docs.electrum.org/en/latest/protocol.html) 프로토콜을 사용합니다.
+블록 탐색기는 지갑의 개인 키를 가지고 있지 않습니다.
 
-However, `Electrum` or `NBXplorer` and `SmartBit` exposes notifications via websockets or long polling so you don't need to poll all the addresses of the wallet.  
-`Insight` is not well maintained. `Blockcypher`, `QBitNinja` and `Smartbit` are third-party hosted. If you are interested in building a wallet such way take a look at nopara73's CodeProject article: [Build your own Bitcoin wallet with QBitNinja in C#](https://www.codeproject.com/Articles/1115639/Build-your-own-Bitcoin-wallet).  
+`QBitNinja`에서는 항상 주소를 변경하는 지갑인 경우 추적하기가 어렵습니다.
+동일한 지갑에 속한 모든 주소를 폴링하여 변경 사항을 감지해야 하기 때문입니다.
 
-[NBxplorer](https://github.com/dgarage/NBXplorer/) has been created to have a very simple API, is self hostable, and tracks only what is needed for your wallet. 
-Contrary to `QBitNinja`, it relies on you having a full node, but it provides websocket notifications and an easy way to query the balances of a wallet. 
+그러나 `Electrum` 또는`NBXplorer` 및 `SmartBit`은 웹소켓(websockets) 또는 롱폴링(long polling)을 통해 알림을 노출하므로 지갑의 모든 주소를 폴링 할 필요가 없습니다.
+`Insight`가 잘 유지되지 않습니다. `Blockcypher`,`QBitNinja` 및 `Smartbit`는 타사에서 호스팅됩니다. 
+이러한 방식으로 지갑을 구축하는 데 관심이 있다면 nopara73의 CodeProject 기사를 참조하십시오: [Build your own Bitcoin wallet with QBitNinja in C#](https://www.codeproject.com/Articles/1115639/Build-your-own-Bitcoin-wallet)
 
-NBXplorer is also multi crypto currency on a single server. As of October 2018, it supports Bitcoin, Litecoin, BCash, 
-BGold, Dash, Dogecoin, Dystem, Feathercoin, Groestlcoin, Monacoin, Polis, UFO, Viacoin and Zclassic.
-It integrates seamlessly with `NBitcoin`.
+[NBxplorer](https://github.com/dgarage/NBXplorer/)는 매우 간단한 API를 갖도록 만들어졌으며, 자체 호스팅이 가능하며, 지갑에 필요한 것만 추적합니다.
+`QBitNinja`와는 달리 풀노드(full node)가 있어야 하지만, 웹소켓 알림을 제공하고, 지갑 잔액을 쉽게 조회 할 수 있습니다.
 
-To setup NBXplorer, you need a fully synced `bitcoind` node with default parameters.  
-Then clone and run [NBXplorer](https://github.com/dgarage/NBXplorer) with default parameters.
+NBXplorer는 또한 단일 서버에서 다중 암호화 통화입니다. 2018 년 10 월 현재 비트 코인, 라이트 코인, BCash, BGold, Dash, Dogecoin, Dystem, Feathercoin, Groestlcoin, Monacoin, Polis, UFO, Viacoin 및 Zclassic를 지원 합니다.
 
-Reference the `NBXplorer.Client` nuget package then you need to notify the `NBXplorer` to track the user wallet:
+또한, 'NBitcoin'과 원활하게 통합됩니다.
+
+NBXplorer를 설정하려면 기본 매개 변수가 있는 완전히 동기화 된 `bitcoind` 노드가 필요합니다.
+그런 다음 기본 매개 변수로 [NBXplorer](https://github.com/dgarage/NBXplorer)를 복제하고 실행합니다.
+
+`NBXplorer.Client` nuget package를 참조한 다음 `NBXplorer`에 사용자 지갑을 추적하도록 알려야합니다:
 
 ```cs
 var network = new NBXplorerNetworkProvider(NetworkType.Mainnet).GetBTC();
@@ -52,21 +58,21 @@ ExplorerClient client = new ExplorerClient(network);
 client.Track(userDerivationScheme);
 ```
 
-Change `NetworkType.Mainnet` if you want to use Testnet or Regtest.
+Testnet 또는 Regtest를 사용하려면 `NetworkType.Mainnet` 문장을 변경하십시오.
 
-If you want a new unused address:
+사용하지 않은 새 주소를 원하는 경우:
 
 ```cs
 Console.WriteLine(client.GetUnused(userDerivationScheme, DerivationFeature.Deposit).Address);
 ```
 
-Then you can query the UTXOs of your user and spend them the following way:
+그런 다음 사용자의 UTXO를 쿼리하고 다음과 같은 방식으로 사용할 수 있습니다:
 
 ```cs
 var utxos = client.GetUTXOs(userDerivationScheme, null, false);
 ```
 
-If you want to spend those UTXOs:
+해당 UTXO를 사용하려면:
 
 ```cs
 var coins = utxos.GetUnspentCoins();
@@ -87,11 +93,11 @@ var tx = builder.BuildTransaction(true);
 Console.WriteLine(client.Broadcast(tx));
 ```
 
-A problem with this solution is that if you call this code twice at the exact same time, you will likely broadcast two transactions spending the same coins, resulting in one of the transaction getting dropped.
+이 솔루션의 문제점은 동시에 두번 호출하면, 동일한 코인을 소비하는 두 개의 트랜잭션을 브로드캐스팅하면, 트랜잭션 중 하나가 삭제된다는 것입니다.
 
-To prevent this problem, you need to make sure to not spend twice the same coins.
+이 문제를 방지하려면 동일한 동전을 두 번 사용하지 않도록해야 합니다.
 
-A way to solve the problem is by simply retrying:
+문제를 해결하는 방법은 간단히 재 시도하는 것입니다:
 
 ```cs
 while(true)
@@ -130,5 +136,4 @@ while(true)
 }
 ```
 
-Another common way is to have a global list of already used outpoint that you can check against.  
-
+또 다른 일반적인 방법은 확인할 수 있는 이미 사용 된 아웃포인트(outpoint)의 전체 목록을 만드는 것입니다.
