@@ -76,4 +76,4 @@ GitBook으로이 책을 읽는 경우 단락의 "+" 버튼을 클릭하여 인�
 
 [GitHub의 코드 예제](https://github.com/ProgrammingBlockchain/ProgrammingBlockchainCodeExamples/)
 
-[Hall of the Makers](http://n.bitcoin.ninja/) (이 책을 마스터 한 사람들의 목록집 입니다.)
+[Hall of the Makers](http://n.bitcoin.ninja/) (이곳에 원조 제작자가 있습니다. 이 책의 도전 과제를 성공적으로 완수한 사람들입니다.)
