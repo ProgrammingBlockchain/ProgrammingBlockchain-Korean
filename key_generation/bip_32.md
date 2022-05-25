@@ -1,14 +1,16 @@
 ## HD Wallet (BIP 32) {#hd-wallet-bip-32}
 
-Let’s keep in mind the problems that we want to resolve:
+우리가 해결하고자 하는 문제점들은 다음과 같습니다:
 
-*   Prevent outdated backups.
-*   Delegating key / address generation to an untrusted peer.
+*  기간이 경과된 백업들.
+*  신뢰할수 없는 peer에게 키/주소를 위임 하는 것.
 
-A “Deterministic” wallet would fix our backup problem. With such a wallet, you would have to save only the seed. From this seed, you can generate the same series of private keys over and over.
+"결정론적(Deterministic)" 지갑은 이러한 백업 문제를 해결할 것입니다. 
+이 지갑에 seed만 저장하면 됩니다. 이 seed와 동일한 연속적인 개인 키를 계속해서 생성할 수 있습니다.
 
-This is what the “Deterministic” stands for.
-As you can see, from the master key, I can generate new keys:
+
+이것이 “결정론적(Deterministic)”이 의미하는 것입니다.
+보시다시피, master-key에서 새로운 키들을 생성할 수 있습니다:
 
 ```cs
 ExtKey masterKey = new ExtKey();
@@ -30,13 +32,14 @@ Key 4 : xprv9tvBA4Kt8UTuQoh1dQeJTXsmmTFwCqi4RXWdjBp114rJjNtPBHjxAckQp3yeEFw7Gf4g
 Key 5 : xprv9tvBA4Kt8UTuTdiEhN8iVDr5rfAPSVsCKpDia4GtEsb87eHr8yRVveRhkeLEMvo3XWL3GjzZvncfWVKnKLWUMNqSgdxoNm7zDzzD63dxGsm
 ```
 
-You only need to save the **masterKey**, since you can generate the same suite of private keys over and over.
+동일한 개인 키를 계속해서 생성할 수 있으므로 마스터 키(**masterKey**)만 저장하면 됩니다.
 
-As you can see, these keys are **ExtKey** and not **Key** as you are used to. However, this should not stop you since you have the real private key inside:
+보시다시피, 이 키는 **ExtKey**이며 이전처럼 **Key**가 아닙니다. 그러나 내부에 실제 개인 키가 있으므로 중단되어서는 안 됩니다.
 
 ![](../assets/ExtKey.png)
 
-You can go back from a **Key** to an **ExtKey** by supplying the **Key** and the **ChainCode** to the **ExtKey** constructor. This works as follows:
+**ExtKey** 생성자에 **Key** 및 **ChainCode**를 제공하여 **Key**에서 **ExtKey**를 복원 할 수 있습니다. 
+이것은 다음과 같이 작동합니다:
 
 ```cs
 ExtKey extKey = new ExtKey();
@@ -46,11 +49,13 @@ Key key = extKey.PrivateKey;
 ExtKey newExtKey = new ExtKey(key, chainCode);
 ```
 
-The **base58** type equivalent of **ExtKey** is called **BitcoinExtKey**.
+**ExtKey**에 해당하는 **base58** 형태를 **BitcoinExtKey**라고 합니다.
 
-But how can we solve our second problem: delegating address creation to a peer that can potentially be hacked (like a payment server)?
+그러나 두 번째 문제인 주소 생성을 잠재적으로 해킹될 수 있는 피어(payment server 같은)에 위임하는 문제를 어떻게 해결할 수 있을까요?
 
-The trick is that you can “neuter” your master key, then you have a public (without private key) version of the master key. From this neutered version, a third party can generate public keys without knowing the private key.
+방법은 마스터 키를 "중립(neuter)" 시킬 수 있다는 것입니다. 
+그러면 마스터 키의 공개(개인 키가 없는) 버전이 생깁니다. 
+이 중립화(neutered)된 버전에서 제3자는 개인 키를 몰라도 공개 키를 생성할 수 있습니다.
 
 ```cs
 ExtPubKey masterPubKey = masterKey.Neuter();
@@ -69,7 +74,7 @@ PubKey 3 : xpub67uQd5a6WCY6HQKya2Mwwb7bpSNB5XhWCR76kRaPxchE3Y1Y2MAiSjhRGftmeWyX8
 PubKey 4 : xpub67uQd5a6WCY6JddPfiPKdrR49KYEuXUwwJJsL5rWGDDQkpPctdkrwMhXgQ2zWopsSV7buz61e5mGSYgDisqA3D5vyvMtKYP8S3EiBn5c1u4
 ```
 
-So imagine that your payment server generates pubkey1, you can get the corresponding private key with your private master key.
+따라서 지불서버(payment server)가 pubkey1을 생성한다면, 개인 마스터 키(private master key)로 해당 개인 키를 얻을 수 있습니다.
 
 ```cs
 masterKey = new ExtKey();
@@ -91,24 +96,25 @@ Generated address : 1Jy8nALZNqpf4rFN9TWG2qXapZUBvquFfX
 Expected address : 1Jy8nALZNqpf4rFN9TWG2qXapZUBvquFfX
 ```
 
-**ExtPubKey** is similar to **ExtKey** except that it holds a **PubKey** and not a **Key**.
+**ExtPubKey**는 **Key**가 아닌 **PubKey**를 보유한다는 점을 제외하고는 **ExtKey**와 유사합니다.
 
 ![](../assets/ExtPubKey.png)
 
-Now we have seen how Deterministic keys solve our problems, let’s speak about what the “hierarchical” is for.
+이제 결정론적 키가 문제를 해결하는 방법을 보았고 "계층적(hierarchical)"이 무엇을 위한 것인지 이야기해 보겠습니다.
 
-In the previous exercise, we have seen that by combining master key + index we could generate another key. We call this process **Derivation**, the master key is the **parent key**, and any generated keys are called **child keys**.
+이전 연습에서 마스터 키 + 인덱스를 결합하여 다른 키를 생성할 수 있음을 보았습니다. 
+우리는 이 프로세스를 **Derivation**이라고 부르고, 마스터 키는 **parent key**이고, 생성된 모든 키는 **child keys**라고 합니다.
 
-However, you can also derivate children from the child key. This is what the “hierarchical” stands for.
+그러나 자식 키에서 자식을 파생시킬 수도 있습니다. 이것이 "계층적(hierarchical)"이 의미하는 것입니다.
 
-This is why conceptually more generally you can say: Parent Key + KeyPath => Child Key.
+이것이 더 일반적이며 개념적으로 Parent-Key + KeyPath => Child-Key라고 말할 수 있는 이유입니다.
 
 ![](../assets/Derive1.png)
 
 ![](../assets/Derive2.png)
 
 
-In this diagram, you can derivate Child(1,1) from parent in two different way:
+이 다이어그램에서 두 가지 다른 방법으로 부모로부터 Child(1,1)을 파생(derivate)할 수 있습니다.
 
 ```cs
 ExtKey parent = new ExtKey();
@@ -122,25 +128,27 @@ ExtKey parent = new ExtKey();
 ExtKey child11 = parent.Derive(new KeyPath("1/1"));
 ```
 
-So in summary:
+요약하자면:
 
 ![](../assets/DeriveKeyPath.png)
 
-It works the same for **ExtPubKey**.
+**ExtPubKey**에서도 동일하게 작동합니다.
 
-Why do you need hierarchical keys? Because it might be a nice way to classify the type of your keys for multiple accounts. More on [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
+계층 키가 필요한 이유는 무엇일까요? 여러 계정에 대한 키 유형을 분류하는 좋은 방법일 수 있기 때문입니다.
 
-It also permits segmenting account rights across an organization.
+다음에서 좀더 자세히 알보세요 [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
 
-Imagine you are CEO of a company. You want control over all wallets, but you don’t want the Accounting department to spend the money from the Marketing department.
+또한 조직 전체에서 계정 권한을 분할할 수 있습니다.
 
-So your first idea would be to generate one hierarchy for each department.
+회사의 CEO라고 상상해보십시오. 모든 지갑에 대한 통제권을 원하지만 회계 부서가 마케팅 부서의 돈을 쓰는 것을 원하지 않을 수 있습니다.
+
+따라서 첫 번째 아이디어는 각 부서에 대해 하나의 계층 구조를 생성하는 것입니다.
 
 ![](../assets/CeoMarketingAccounting.png)
 
-However, in such a case, **Accounting** and **Marketing** would be able to recover the CEO’s private key.
+하지만 이 경우 **Accounting**와 **Marketing**은 CEO의 개인 키를 복구할 수 있게 됩니다.
 
-We define such child keys as **non-hardened**.
+이러한 하위 키를 **non-hardened**로 정의합니다.
 
 ![](../assets/NonHardened.png)
 
@@ -161,9 +169,9 @@ CEO: xprv9s21ZrQH143K2XcJU89thgkBehaMqvcj4A6JFxwPs6ZzGYHYT8dTchd87TC4NHSwvDuexuF
 CEO recovered: xprv9s21ZrQH143K2XcJU89thgkBehaMqvcj4A6JFxwPs6ZzGYHYT8dTchd87TC4NHSwvDuexuFVFpYaAt3gztYtZyXmy2hCVyVyxumdxfDBpoC
 ```
 
-In other words, a **non-hardened key** can “climb” the hierarchy. **Non-hardened keys** should only be used for categorizing accounts that belongs to a point of **single control**.
+즉, **강화되지 않은 키(non-hardened key)**는 계층 구조를 "오르기(climb)"할 수 있습니다. **Non-hardened keys**는 **single control** 지점에 포함되는 계정 분류에만 사용해야 합니다.
 
-So in our case, the CEO should create a **hardened key**, so the accounting department will not be able to climb the hierarchy.
+따라서 이 경우 CEO는 **hardened key**를 만들어야만, 회계(accounting) 부서가 계층을 올라갈 수 없습니다.
 
 ```cs
 ExtKey ceoKey = new ExtKey();
@@ -175,16 +183,16 @@ ExtPubKey ceoPubkey = ceoKey.Neuter();
 ExtKey ceoKeyRecovered = accountingKey.GetParentExtKey(ceoPubkey); //Crash
 ```
 
-You can also create hardened keys via the **ExtKey.Derivate**(**KeyPath)**, by using an apostrophe after a child’s index:
+자식 인덱스 뒤에 부호(apostrophe)를 사용하여 **ExtKey.Derivate**(**KeyPath)**를 통해 강화된 키를 만들 수도 있습니다.
 
 ```cs
 var nonHardened = new KeyPath("1/2/3");
 var hardened = new KeyPath("1/2/3'");
 ```
 
-So let’s imagine that the Accounting Department generates 1 parent key for each customer, and a child for each of the customer’s payments.
+따라서 회계 부서에서 각 고객에 대해 1개의 상위(부모) 키를 생성하고 각 고객의 지불(payment)에 대해 하위 키를 생성한다고 가정해 보겠습니다.
 
-As the CEO, you want to spend the money on one of these addresses. Here is how you would proceed.
+CEO가 이 주소 중 하나에 돈을 사용하고 싶은 경우 다음과 같이 진행하게 됩니다.
 
 ```cs
 ceoKey = new ExtKey();
