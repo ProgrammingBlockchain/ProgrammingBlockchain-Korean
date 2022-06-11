@@ -46,7 +46,7 @@ var sameMainNetAddress2 = new BitcoinPubKeyAddress(samePublicKeyHash, Network.Ma
 Console.WriteLine(mainNetAddress == sameMainNetAddress2); // True
 ```   
 
-> **Note:** ScriptPubKe에는 비트코인을 사용할 수 있는 해시된 공개 키를 반드시 포함할 필요는 없습니다.
+> **Note:** ScriptPubKey에는 비트코인을 사용할 수 있는 해시된 공개 키를 반드시 포함할 필요는 없습니다.
 
 이제 개인 키, 공개 키, 공개 키 해시, 비트코인 주소 및 ScriptPubKey 간의 관계를 이해했습니다.
 
