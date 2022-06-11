@@ -19,7 +19,7 @@ Console.WriteLine(WifIsBitcoinSecret); // True
 
 반면에, 비트코인 주소는 공개 키가 아닌 공개 키 해시를 가지고 있기에 비트코인 주소에서 공개 키 값을 생성할 수 없습니다.
 
-다음 두 코드 블록 간의 유사성을 비교하면 위의 차이를 이해 할 수 있습니다:
+다음 두 코드의 유사성을 비교하면 차이를 이해할 수 있습니다:
 
 ```cs
 Key privateKey = new Key(); // 랜덤 private key 생성
