@@ -1,6 +1,6 @@
 ![](assets/ProgrammingBlockchain.png)
 
-[코드 예제는 여기를 클릭](https://github.com/ProgrammingBlockchain/ProgrammingBlockchainCodeExamples/)
+[코드 예제는 여기를 클릭하세요](https://github.com/ProgrammingBlockchain/ProgrammingBlockchainCodeExamples/)
 
 ## [책을 읽으려면 여기를 클릭하세요](https://programmingblockchain.gitbooks.io/programmingblockchain-korean/content/)
 
@@ -18,9 +18,9 @@
 
 ## 빠른 피드백
 
-실수를 발견하고 직접 수정하고 싶지 않은 경우 [책의 GitHub 페이지에서](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean) 문제를 알려주세요.
+실수를 발견하고 직접 수정하고 싶지 않은 경우, [책의 GitHub 페이지에서](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean) 문제를 알려주세요.
 
-GitBook으로이 책을 읽는 경우 단락의 "+" 버튼을 클릭하여 인라인 주석을 작성할 수도 있습니다.
+GitBook으로 이 책을 읽는 경우 단락의 "+" 버튼을 클릭하여 인라인 주석을 작성할 수도 있습니다.
 
 ## 오타를 수정하려면 어떻게해야하나요? 일명 빠른 기여
 
@@ -58,7 +58,7 @@ GitBook으로이 책을 읽는 경우 단락의 "+" 버튼을 클릭하여 인�
 
 읽는 동안 기여하는 것은 더 빨리 배우는 좋은 방법입니다. 무언가를 이해하는 데 어려움이 있다면, 그것을 바꾸고 다른 독자에게 병합 요청를하십시오.
 
-[문제 해결](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean/issues)을 도울 수도 있습니다. (대학생을위한 Protip : 좋은 GitHub 프로필은 취업 시장의 졸업장보다 더 가치가 있습니다.)
+[문제 해결](https://github.com/ProgrammingBlockchain/ProgrammingBlockchain-Korean/issues)을 도울 수도 있습니다. (대학생을 위한 팁: 좋은 GitHub 프로필은 취업 시장에서 졸업장보다 더 가치 있습니다.)
 
 ## 기부 방법
 
