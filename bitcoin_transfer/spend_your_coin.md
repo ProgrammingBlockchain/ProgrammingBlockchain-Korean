@@ -1,17 +1,17 @@
 ﻿## 코인 사용 {#spend-your-coin}
 
 
-**bitcoin address**,**ScriptPubKey**,**private key** 그리고 **miner**에 대해서 알게 되었고, 이제 직접 첫 번째 **transaction**을 만들게 될 것입니다.
+**bitcoin address**,**ScriptPubKey**,**private key** 그리고 **miner**에 대해서 알게 되었고, 이제 직접 첫 번째 **트랜잭션**을 만들게 될 것입니다.
 
 이 레슨을 진행하면서 Twitter 스타일 메시지에 책에 대한 피드백을 남길 방법을 빌드하기 위해 제시된대로 코드를 한 줄씩 추가합니다.
 
 먼저 TestNet에서 지침을 따르고 메인 비트코인 네트워크에서 다시 수행하는 것이 좋습니다.
 
-이전과 같이 지출하려는 **TxOut**이 포함 된 **transaction**을 살펴 보겠습니다 .
+이전과 같이 지출하려는 **TxOut**이 포함 된 **트랜잭션**을 살펴 보겠습니다 .
 
-새 **Console Project** (.net45)를 만들고 QBitNinja.Client NuGet을 설치 합니다.
+새 **Console Project** (>.net45)를 만들고 QBitNinja.Client NuGet을 설치 합니다.
 
-이미 개인키를 생성하고 기록해 두셨습니까? 해당 비트코인 주소를 이미 받고 거기에 자금을 보냈습니까? 그렇지 않다면 걱정하지 마십시오. 어떻게 할 수 있는지 빠르게 다시 알려 주겠습니다:
+이미 개인 키를 생성하고 기록해뒀나요? 해당 비트코인 주소를 이미 받고 거기에 자금을 보냈나요? 그렇지 않다면 걱정하지 마세요. 어떻게 할 수 있는지 빠르게 다시 알려 주겠습니다:
 
 
 ```cs
@@ -26,9 +26,9 @@ Console.WriteLine(bitcoinPrivateKey);
 Console.WriteLine(address);
 ```
 
-먼저 TestNet을 사용하지만 MainNet에서도 이 작업을 수행하므로 실제 돈을 지출하게됩니다! 어떤 경우든, **bitcoinPrivateKey** 및 주소를 기록해 두세요! 거기에 몇 달러의 코인을 보내고 트랜잭션 ID를 저장하십시오 (지갑 소프트웨어 또는 SmartBit for [MainNet](http://smartbit.com.au/) 및 [TestNet](https://testnet.smartbit.com.au/) 과 같은 블록 탐색기에서 찾을 수 있음).
+먼저 testnet을 사용하지만 mainnet에서도 이를 통해 실제 돈을 사용할 수 있습니다! 어떤 경우든, **bitcoinPrivateKey** 및 주소를 기록해 두세요! 거기에 몇 달러의 코인을 보내고 트랜잭션 ID를 저장하세요.
 
-개인키를 가져옵니다 ( "cN5Y ... K2RS" 문자열을 귀하의 것으로 대체):
+개인 키를 가져옵니다 ("cN5Y ... K2RS" 문자열을 자신의 걸로 대체하세요.):
 
 
 ```cs
@@ -40,7 +40,7 @@ Console.WriteLine(bitcoinPrivateKey); // cN5YQMWV8y19ntovbsZSaeBxXaVPaK4n7vapp4V
 Console.WriteLine(address); // mkZzCmjAarnB31n5Ke6EZPbH64Cxexp3Jp
 ```
 
-마지막으로 거래 정보를 얻습니다 ( "0acb ... b78a"를 코인을 보낸 후 지갑 소프트웨어 또는 블록체인 탐색기에서 얻은 정보로 대체):
+마지막으로 거래 정보를 얻습니다 (코인을 보낸 후 지갑이나 블록체인 탐색기에서 얻은 ID로 "0acb ... b78a"를 대체):
 
 ```cs
 var client = new QBitNinjaClient(network);
@@ -51,11 +51,11 @@ Console.WriteLine(transactionResponse.TransactionId); // 0acb6e97b228b838049ffbd
 Console.WriteLine(transactionResponse.Block.Confirmations); // 91
 ```
 
-이제 우리는 거래를 생성하는 데 필요한 모든 정보를 얻었습니다. 주요 질문은 다음과 같습니다: **from where, to where and how much?**
+이제 우리는 거래를 생성하는 데 필요한 모든 정보를 얻었습니다. 주요 질문은 다음과 같습니다: **어디서, 어디로 그리고 얼마나?**
 
-### From where?
+### 어디서?
 
-우리의 경우 두 번째 아웃 포인트를 사용하려고합니다. 우리가 이것을 알아 낸 방법은 다음과 같습니다:
+우리의 경우 두 번째 outpoint를 사용하려고합니다. 우리가 이것을 알아내는 방법은 다음과 같습니다:
 
 ```cs
 var receivedCoins = transactionResponse.ReceivedCoins;
@@ -72,7 +72,7 @@ if(outPointToSpend == null)
 Console.WriteLine("We want to spend {0}. outpoint:", outPointToSpend.N + 1);
 ```
 
-지불을 위해 거래에서 이 아웃 포인트를 참조해야합니다. 다음과 같이 트랜잭션을 생성합니다:
+지불을 위해 거래에서 이 outpoint를 참조해야합니다. 다음과 같이 트랜잭션을 생성합니다:
 
 ```cs
 var transaction = Transaction.Create(network);
@@ -82,35 +82,34 @@ transaction.Inputs.Add(new TxIn()
 });
 ```
 
-### To where?
+### 어디로?
 
-주요 질문을 기억하십니까? **From where, to where and how much?** 
-**TxIn**을 구성하고 트랜잭션에 추가하는 것이 "from where" 질문에 대한 답입니다.
+주요 질문을 기억하십니까? **어디서, 어디로 그리고 얼마나?**
+**TxIn**을 구성하고 트랜잭션에 추가하는 것이 "어디서" 질문에 대한 답입니다.
 **TxOut**을 구성하고 트랜잭션에 추가하는 것이 나머지 항목에 대한 답입니다. 
 
-> 이 책의 기부 주소 : [1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB](https://www.smartbit.com.au/address/1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB) 이 돈은 Nicolas의 "Coffee and Sushi Wallet"으로 입금되서 그가 나머지 책을 쓰는 동안 그를 지원하게 될 것입니다. MainNet에서 이 챌린지를 성공적으로 완료하면 [http://n.bitcoin.ninja/](http://n.bitcoin.ninja/) 상의 제작자의 전당 **Hall of the Makers**에서 기여한 내용을 찾을 수 있습니다 (기여 순서로 정렬).
+> 이 책의 기부 주소 : [1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB](https://www.smartbit.com.au/address/1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB) 이 돈은 Nicolas의 "Coffee and Sushi Wallet"으로 입금되서 그가 나머지 책을 쓰는 동안 그를 지원하게 될 것입니다. mainnet에서 이 챌린지를 성공적으로 완료하면 [http://n.bitcoin.ninja/](http://n.bitcoin.ninja/) 상의 제작자의 전당 **Hall of the Makers**에서 기여한 내용을 찾을 수 있습니다. (기여 순서로 정렬)
 
-메인 넷 주소 만들기:
+mainnet 주소 만들기:
 
 ```cs
 var hallOfTheMakersAddress = new BitcoinPubKeyAddress("1KF8kUVHK42XzgcmJF4Lxz4wcL5WDL97PB", Network.Main);
 ```
 
-또는 TestNet에서 작업하는 경우 TestNet 코인을 임의의 주소로 보내십시오. 나는 [mzp4No5cmCXjZUpf112B1XWsvWBfws5bbB](https://testnet.smartbit.com.au/address/mzp4No5cmCXjZUpf112B1XWsvWBfws5bbB)를 사용 했습니다.
+또는 testnet에서 작업하는 경우 testnet 코인을 임의의 주소로 보내세요. 예시에서는 [mzp4No5cmCXjZUpf112B1XWsvWBfws5bbB](https://testnet.smartbit.com.au/address/mzp4No5cmCXjZUpf112B1XWsvWBfws5bbB)를 사용 했습니다.
 
 ```cs
 var hallOfTheMakersAddress = BitcoinAddress.Create("mzp4No5cmCXjZUpf112B1XWsvWBfws5bbB", Network.TestNet);
 ```
 
-### How much?
+### 얼마나?
 
-비트코인은 [사용할 수있는 여러 단위](https://en.bitcoin.it/wiki/Units)가 있지만, 알아야 할 세 가지가 있습니다 : 비트코인, 비트 및 사토시. 1 비트코인 (BTC)은 1,000,000 비트이고 100 사토시는 1 비트입니다. 1 satoshi (sat)는 비트코인 네트워크에서 가장 작은 단위입니다.
+비트코인은 [사용할 수있는 여러 단위](https://en.bitcoin.it/wiki/Units)가 있지만, 알아야 할 세 가지가 있습니다 : 비트코인, 비트 및 사토시. 1 비트코인 (BTC)은 1,000,000 비트이고 100 사토시는 1 비트입니다. 1 satoshi(sat)는 비트코인 네트워크에서 가장 작은 단위입니다.
 
 **0.001 BTC**를 보유하고 있는 경우, **사용되지 않은 출력(unspent)**에서 **0.0004 BTC** (a few dollars)를 보내려면, 실제로는 전부를 보내게 됩니다!
-아래 다이어그램에서 볼 수 있듯이 **transaction output**은 [Hall of The Makers](http://n.bitcoin.ninja/)에 **0.0004 BTC**를 할당하고 **0.00053 BTC**는 반환됩니다.
+아래 다이어그램에서 볼 수 있듯이 **트랜잭션 출력**은 [Hall of The Makers](http://n.bitcoin.ninja/)에 **0.0004 BTC**를 할당하고 **0.00053 BTC**는 반환합니다.
 나머지 **0.00007 BTC**는 어떻게 되나요? 이것은 채굴자에게 지급되는 수수료 입니다.
-채굴자 수수료는 채굴자가 이 거래를 다음 블록에 추가하도록 합니다. 채굴 수수료가 높을수록 채굴자가 다음 블록에 거래를 포함시키려는 동기가 높아져 거래가 더 빨리 확인됩니다. 채굴 수수료를 0으로 설정하면 거래가 확인되지 않을 수 있습니다. 
-
+채굴자 수수료는 채굴자가 이 거래를 다음 블록에 추가하도록 채굴자에게 장려합니다. 채굴 수수료가 높을수록 채굴자가 다음 블록에 거래를 포함시키려는 동기가 높아져 거래가 더 빨리 확인됩니다. 채굴 수수료를 0으로 설정하면 거래가 영원히 확인되지 않을 수도 있습니다. 
 
 ![](../assets/SpendTx.png)
 
@@ -120,7 +119,7 @@ transaction.Outputs.Add(Money.Coins(0.0004m), hallOfTheMakersAddress.ScriptPubKe
 transaction.Outputs.Add(new Money(0.00053m, MoneyUnit.BTC), bitcoinPrivateKey.ScriptPubKey);
 ```
 
-여기서 미세 조정을 할 수 있습니다. 채굴 수수료를 기준으로 변경 사항을 계산해 보겠습니다. 
+여기서 몇 가지를 미세하게 조정할 수 있습니다. 채굴 수수료를 기준으로 변경 사항을 계산해 보겠습니다. 
 
 ```cs
 // How much you want to spend
@@ -138,7 +137,7 @@ var txInAmount = (Money)receivedCoins[(int) outPointToSpend.N].Amount;
 var changeAmount = txInAmount - hallOfTheMakersAmount - minerFee;
 ```
 
-TxOut에 대해 계산 된 값을 사용하겠습니다:
+TxOut에 대해 계산된 값을 사용하겠습니다:
 
 ```cs
 transaction.Outputs.Add(hallOfTheMakersAmount, hallOfTheMakersAddress.ScriptPubKey);
@@ -148,7 +147,7 @@ transaction.Outputs.Add(changeAmount, bitcoinPrivateKey.ScriptPubKey);
 
 ### Message on The Blockchain
 
-개인 피드백을 추가 해 보세요! 80 바이트 이하여야 합니다. 그렇지 않으면 거래가 거부됩니다.
+개인 피드백을 추가 해 보세요! 80바이트 이하여야 합니다. 그렇지 않으면 거래가 거부됩니다.
 이 메시지는 transaction에 포함되어 거래가 확인 된 후 [Hall of The Makers](http://n.bitcoin.ninja/)에 표시 됩니다! :) 
 
 ```cs
@@ -199,32 +198,32 @@ transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPu
 **TxIn**을 자세히 살펴보세요. **prev\_out** 및 **scriptSig**가 있습니다.
 **Exercise:** 추가 정보를 읽기 전에 **scriptSig**가 무엇이고 어떻게 코드에 포함되는지 알아 보십시오!
 
-TestNet blockexplorer에서 **prev\_out**의 **hash**를 확인해 봅시다: [prev\_out tx details](https://testnet.smartbit.com.au/tx/0acb6e97b228b838049ffbd528571c5e3edd003f0ca8ef61940166dc3081b78a). 0.001 BTC가 우리 주소로 전송되었음을 알 수 있습니다.
+testnet Block Explorer에서 **prev\_out**의 **hash**를 확인해 보세요: [prev\_out tx details](https://testnet.smartbit.com.au/tx/0acb6e97b228b838049ffbd528571c5e3edd003f0ca8ef61940166dc3081b78a). 0.001 BTC가 우리 주소로 전송되었음을 알 수 있습니다.
 
 **prev\_out** **n**은 0입니다. 0에서 인덱싱하므로 트랜잭션의 첫 번째 출력을 사용한다는 의미입니다 (두 번째 출력은 트랜잭션의 1.0989548 BTC 입니다). 
 
 
-### Sign your transaction
+### Transaction 서명
 
 
 이제 트랜잭션을 생성 했으므로 서명해야합니다. 즉, 입력에서 참조한 TxOut을 소유하고 있음을 증명해야합니다.
 
-서명은 [복잡](https://en.bitcoin.it/w/images/en/7/70/Bitcoin_OpCheckSig_InDetail.png) 할 수 있지만 간단하게 만들겠습니다.
+서명은 [복잡](https://en.bitcoin.it/w/images/en/7/70/Bitcoin_OpCheckSig_InDetail.png)할 수 있지만 간단하게 만들겠습니다.
 
 먼저 **in**의 **scriptSig** 코드에서 어떻게 가져올 수 있는지 다시 살펴 보겠습니다. 주소의 ScriptPubKey로 ScriptSig를 채우는 것에는 두 가지 방법이 있습니다:
 
 
 ```cs
-// Get it from the public address
+// 주소에서 가져오기
 var address = BitcoinAddress.Create("mkZzCmjAarnB31n5Ke6EZPbH64Cxexp3Jp", Network.TestNet);
 transaction.Inputs[0].ScriptSig = address.ScriptPubKey;
 
-// OR we can also use the private key 
+// 또는 개인 키에서 가져오기 
 var bitcoinPrivateKey = new BitcoinSecret("cN5YQMWV8y19ntovbsZSaeBxXaVPaK4n7vapp4V56CKx5LhrK2RS", Network.TestNet);
 transaction.Inputs[0].ScriptSig =  bitcoinPrivateKey.ScriptPubKey;
 ```
 
-transaction에 서명하려면 개인키가 필요 합니다:
+트랜잭션에 서명하려면 개인키가 필요 합니다:
 
 ```cs
 transaction.Sign(bitcoinPrivateKey, receivedCoins.ToArray());
@@ -232,14 +231,14 @@ transaction.Sign(bitcoinPrivateKey, receivedCoins.ToArray());
 
 이 명령 후에 입력의 ScriptSig 속성이 서명으로 대체되고, 트랜잭션이 서명 완료 됩니다.
 
-블록체인 탐색기 [여기](https://testnet.smartbit.com.au/tx/eeffd48b317e7afa626145dffc5a6e851f320aa8bb090b5cd78a9d2440245067)에서 TestNet 트랜잭션을 확인할 수 있습니다. 
+블록체인 탐색기 [여기](https://testnet.smartbit.com.au/tx/eeffd48b317e7afa626145dffc5a6e851f320aa8bb090b5cd78a9d2440245067)에서 testnet 트랜잭션을 확인할 수 있습니다. 
 
 
-### Propagate your transactions (거래 전파)
+### 트랜잭션 브로드캐스팅
 
 축하합니다. 첫 거래에 서명하셨습니다! 거래를 시작할 준비가되었습니다! 남은 것은 채굴자가 볼 수 있도록 네트워크에 전파하는 것입니다. 
 
-#### With QBitNinja:
+#### QBitNinja:
 
 ```cs
 BroadcastResponse broadcastResponse = client.Broadcast(transaction).Result;
@@ -256,7 +255,7 @@ else
 }
 ```
 
-#### With your own Bitcoin Core:
+#### Bitcoin Core:
 
 ```cs
 using (var node = Node.ConnectToLocal(network)) //Connect to the node
@@ -274,7 +273,7 @@ using (var node = Node.ConnectToLocal(network)) //Connect to the node
 
 비트코인 네트워크에 직접 연결할 수도 있지만, 더 빠르고 쉽게 신뢰할 수있는 노드에 연결하는 것이 좋습니다. 
 
-## Need more practice?
+## 더 많은 연습을 원하나요?
 
 YouTube: [How to make your first transaction with NBitcoin](https://www.youtube.com/watch?v=X4ZwRWIF49w)  
 CodeProject: [Create a Bitcoin transaction by hand.](http://www.codeproject.com/Articles/1151054/Create-a-Bitcoin-transaction-by-hand)  
