@@ -26,7 +26,7 @@ Console.WriteLine(bitcoinPrivateKey);
 Console.WriteLine(address);
 ```
 
-먼저 TestNet을 사용하지만 MainNet에서도 이를 통해 실제 돈을 사용할 수 있습니다! 어떤 경우든, **bitcoinPrivateKey** 및 주소를 기록해 두세요! 거기에 몇 달러의 코인을 보내고 트랜잭션 ID를 저장하세요.
+먼저 testnet을 사용하지만 mainnet에서도 이를 통해 실제 돈을 사용할 수 있습니다! 어떤 경우든, **bitcoinPrivateKey** 및 주소를 기록해 두세요! 거기에 몇 달러의 코인을 보내고 트랜잭션 ID를 저장하세요.
 
 개인 키를 가져옵니다 ("cN5Y ... K2RS" 문자열을 자신의 걸로 대체하세요.):
 
