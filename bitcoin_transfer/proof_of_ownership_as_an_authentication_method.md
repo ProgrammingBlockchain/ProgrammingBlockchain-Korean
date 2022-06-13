@@ -1,4 +1,4 @@
-## 인증 방법으로 소유권 증명 {#proof-of-ownership-as-an-authentication-method}
+## 인증 방식으로서 소유권 증명 {#proof-of-ownership-as-an-authentication-method}
 > [[2016.05.02](https://www.youtube.com/watch?v=dZNtbAFnr-0)] 저는 Craig Wright고, 비트코인에서 수행된 첫 번째 거래의 공개 키로 메시지의 서명을 시연하려고 합니다.
 
 ```cs
