@@ -94,7 +94,7 @@ Pay to public key hash : OP_DUP OP_HASH160 0ae54d4cec828b722d8727cb70f4a6b0a8820
 *   타원 곡선 암호(**public key**와 **private key**에 사용되는 암호화)는 타원 곡선에서 이산 로그 문제를 해결하기 위한 수정 쇼어 알고리즘에 취약합니다. 쉽게 말해서, 미래의 양자 컴퓨터가 공개 키로부터 개인 키를 되찾을 수 있다는 것을 의미합니다. 코인을 사용할 때만 공개 키를 사용함으로써(주소를 재사용하지 않는다고 가정하면), 이러한 공격을 막을 수 있습니다.
 *   해시된 것은 더 작기에 (20바이트), QR 코드와 같은 작은 용량의 매체에 쉽게 포함시키고 인쇄할 수 있습니다.
 
-오늘날에는 P2SH...와 함께 사용되는 것을 제외하면 더 이상 P2PK를 직접적으로 사용할 이유는 없습니다.
+오늘날에는 P2SH...와 함께 사용됨에도 불구하고 더 이상 P2PK를 직접적으로 사용할 이유는 없습니다.
 
 > ([Discussion](https://www.reddit.com/r/Bitcoin/comments/4isxjr/petition_to_protect_satoshis_coins/d30we6f)) If the issue of the early use of P2PK is not addressed it will have a serious impact on the Bitcoin price.  
 
