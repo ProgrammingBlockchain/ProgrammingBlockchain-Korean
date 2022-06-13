@@ -1,17 +1,17 @@
-## Like the good ol’ days {#like-the-good-ol-days}
+## 그때 그 시절엔 {#like-the-good-ol-days}
 
-First, why generate several keys?
-The main reason is privacy. Since you can see the balance of all addresses, it is better to use a new address for each transaction.
+첫 번째로, 왜 여러 키를 생성할까요?
+주요 이유는 개인 정보 보호입니다. 우리는 모든 주소의 잔액을 볼 수 있기 때문에, 각 트랜잭션마다 새로운 주소를 사용하는 것이 좋습니다.
 
-You can generate a key, like you did at the beginning:
+처음에 했던 것처럼 다음과 같이 키를 생성할 수 있습니다.
 
 ```cs
 var privateKey = new Key()
 ```
 
-However, you have two problems with that:
+그러나 위 방식에는 두 가지 문제점이 있습니다:
 
-*   All backups of your wallet that you, have will become outdated when you generate a new key.
-*   You cannot delegate the address creation process to an untrusted peer.
+*   새로운 키를 생성하면, 기존의 백업된 지갑은 업데이트가 되지 않습니다.
+*   신뢰할 수 없는 피어에 주소 생성 과정을 위임할 수 없습니다.
 
-If you are developing a web wallet and generate keys on behalf of your users, and one user gets hacked, they will immediately start suspecting you.
+만약 웹 지갑을 개발하고 있고 사용자를 대신해서 키를 생성하는 경우, 한 사용자가 해킹당하면 그들 전부 그 즉시 의심하기 시작할 것입니다.
