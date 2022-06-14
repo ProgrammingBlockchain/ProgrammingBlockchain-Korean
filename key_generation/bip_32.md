@@ -1,4 +1,4 @@
-## HD Wallet (BIP 32) {#hd-wallet-bip-32}
+## HD 지갑 (BIP 32) {#hd-wallet-bip-32}
 
 우리가 해결하고자 하는 문제점들은 다음과 같습니다:
 
