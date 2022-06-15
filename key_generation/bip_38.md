@@ -1,4 +1,4 @@
-## BIP38 (Part 2) {#bip38-part-2}
+## BIP38 (파트 2) {#bip38-part-2}
 
 We already looked at using BIP38 to encrypt a key, however this BIP is in reality two ideas in one document.
 

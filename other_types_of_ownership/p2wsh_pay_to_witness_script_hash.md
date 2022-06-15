@@ -1,23 +1,23 @@
 ## P2WSH (Pay to Witness Script Hash) {#p2wsh-pay-to-witness-script-hash}
 
-As with P2PKH/P2WPKH, the only difference between P2SH and P2WSH is about the location of what was previously in the ```scriptSig```, and the ```scriptPubKey``` being modified.
+P2PKH와 P2WPKH처럼, P2SH와 P2WSH 간에 유일한 차이점은 ```scriptSig```에 있던 것의 위치와 ```scriptPubKey```가 수정되었다는 점입니다.
 
-The ```scriptPubKey``` is changed from something like:
+```scriptPubKey```는 이러한 것에서:
 
 ```OP_HASH160 10f400e996c34410d02ae76639cbf64f4bdf2def OP_EQUAL```
 
-To:
+이렇게 바뀝니다:
 
 ```0 e4d3d21bab744d90cd857f56833252000ac0fade318136b713994b9319562467```
 
-That you can print with the following code:  
+아래 코드로 출력해볼 수 있습니다:  
 
 ```cs
 var key = new Key();
 Console.WriteLine(key.PubKey.ScriptPubKey.WitHash.ScriptPubKey);
 ```  
 
-With what was previously in the ```scriptSig``` (signature + redeem script), moved to the ```witness```:
+```scriptSig```에 있던 내용(서명 + redeem 스크립트)도 ```witness``` 옮겨집니다:
 
 ```json
 "in": [
@@ -33,4 +33,4 @@ With what was previously in the ```scriptSig``` (signature + redeem script), mov
 
 ```
 
-As the P2SH payment explained previously, P2WSH uses ```ScriptCoin``` in exactly the same way to be signed.
+이전에 설명했던 P2SH처럼, P2WSH는 서명하기 위해 ```ScriptCoin```을 완전히 동일하게 사용합니다.
